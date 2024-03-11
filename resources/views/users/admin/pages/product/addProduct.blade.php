@@ -68,7 +68,7 @@
                     <small id="productDescriptionErr" class="text-danger"></small>
                 </div>
 
-                <h6 class="col-12">Product Address</h6>
+                {{-- <h6 class="col-12">Product Address</h6>
 
                 <div class="my-3 col-12 col-sm-12 col-lg-3">
                     <label for='productAddress' class='form-label'>Product Address</label>
@@ -87,7 +87,7 @@
                     <input type='text' class='form-control p-3' id='productState'
                         placeholder='' name='productState'>
                     <small id='productStateErr' class='text-danger'></small>
-                </div>
+                </div> --}}
 
                 
                 <h5 class="col-12">Kindly note that you must upload Front view of your product. Other views are optional. Acceptable dimension is 300px by 250px</h5>

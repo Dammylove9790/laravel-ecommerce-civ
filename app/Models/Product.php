@@ -21,9 +21,9 @@ class Product extends Model
         'quantity',
         'measurement',
         'description',
-        'address',
-        'city',
-        'state',
+        // 'address',
+        // 'city',
+        // 'state',
         'status',
         'updated_by'
     ];

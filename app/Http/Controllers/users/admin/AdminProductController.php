@@ -68,21 +68,21 @@ class AdminProductController extends Controller
             return response()->json([$customErrors]);
         } else {
             // save pictures with watermark to computer if admin
-            $frontImg = Image::make($frontViewFile)->resize(300, 250); //->insert('img/Wefarm.png');
+            $frontImg = Image::make($frontViewFile)->resize(300, 250);//->insert('img/Wefarm.png');
             $frontImg->save('pictures/' . $frontViewName);
 
             if ($request->hasFile('productBackView')) {
-                $backImg = Image::make($backViewFile)->resize(300, 250); //->insert('img/Wefarm.png');
+                $backImg = Image::make($backViewFile)->resize(300, 250);//->insert('img/Wefarm.png');
                 $backImg->save('pictures/' . $backViewName);
             }
 
             if ($request->hasFile('productLeftView')) {
-                $leftImg = Image::make($leftViewFile)->resize(300, 250); //->insert('img/Wefarm.png');
+                $leftImg = Image::make($leftViewFile)->resize(300, 250);//->insert('img/Wefarm.png');
                 $leftImg->save('pictures/' . $leftViewName);
             }
 
             if ($request->hasFile('productRightView')) {
-                $rightImg = Image::make($rightViewFile)->resize(300, 250); //->insert('img/Wefarm.png');
+                $rightImg = Image::make($rightViewFile)->resize(300, 250);//->insert('img/Wefarm.png');
                 $rightImg->save('pictures/' . $rightViewName);
             }
 
@@ -110,9 +110,9 @@ class AdminProductController extends Controller
                 'quantity' => $request->productQuantity,
                 'measurement' => $request->productMeasurement,
                 'description' => ucfirst($request->productDescription),
-                'address' => $request->productAddress,
-                'city' => ucfirst(strtolower($request->productCity)),
-                'state' => ucfirst(strtolower($request->productState)),
+                // 'address' => $request->productAddress,
+                // 'city' => ucfirst(strtolower($request->productCity)),
+                // 'state' => ucfirst(strtolower($request->productState)),
                 'status' => 'successful',
             ]);
 
@@ -231,13 +231,13 @@ class AdminProductController extends Controller
             // from the storage. Then save the new pictures with 
             // watermark to computer if admin
             if ($request->hasFile('productFrontView')) {
-                $frontImg = Image::make($frontViewFile)->resize(300, 250); //->insert('img/Wefarm.png');
+                $frontImg = Image::make($frontViewFile)->resize(300, 250);//->insert('img/Wefarm.png');
                 unlink(public_path() . '/pictures/' . $product->picture->front_view);
                 $frontImg->save('pictures/' . $frontViewName);
             }
 
             if ($request->hasFile('productBackView')) {
-                $backImg = Image::make($backViewFile)->resize(300, 250); //->insert('img/Wefarm.png');
+                $backImg = Image::make($backViewFile)->resize(300, 250);//->insert('img/Wefarm.png');
                 if ($product->picture->back_view) {
                     unlink(public_path() . '/pictures/' . $product->picture->back_view);
                 }
@@ -245,7 +245,7 @@ class AdminProductController extends Controller
             }
 
             if ($request->hasFile('productLeftView')) {
-                $leftImg = Image::make($leftViewFile)->resize(300, 250); //->insert('img/Wefarm.png');
+                $leftImg = Image::make($leftViewFile)->resize(300, 250);//->insert('img/Wefarm.png');
                 if ($product->picture->left_view) {
                     unlink(public_path() . '/pictures/' . $product->picture->left_view);
                 }
@@ -253,7 +253,7 @@ class AdminProductController extends Controller
             }
 
             if ($request->hasFile('productRightView')) {
-                $rightImg = Image::make($rightViewFile)->resize(300, 250); //->insert('img/Wefarm.png');
+                $rightImg = Image::make($rightViewFile)->resize(300, 250);//->insert('img/Wefarm.png');
                 if ($product->picture->right_view) {
                     unlink(public_path() . '/pictures/' . $product->picture->right_view);
                 }
@@ -272,9 +272,9 @@ class AdminProductController extends Controller
                 'quantity' => $request->productQuantity,
                 'measurement' => $request->productMeasurement,
                 'description' => ucfirst($request->productDescription),
-                'address' => $request->productAddress,
-                'city' => ucfirst(strtolower($request->productCity)),
-                'state' => ucfirst(strtolower($request->productState)),
+                // 'address' => $request->productAddress,
+                // 'city' => ucfirst(strtolower($request->productCity)),
+                // 'state' => ucfirst(strtolower($request->productState)),
                 'updated_by' => $updated_by
             ]);
 

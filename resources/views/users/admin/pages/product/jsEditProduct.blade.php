@@ -7,9 +7,9 @@ let price = editProductForm["productPrice"];
 let quantity = editProductForm["productQuantity"];
 let measurement = editProductForm["productMeasurement"];
 let description = editProductForm["productDescription"];
-let address = editProductForm["productAddress"];
-let state = editProductForm["productState"];
-let city = editProductForm["productCity"];
+// let address = editProductForm["productAddress"];
+// let state = editProductForm["productState"];
+// let city = editProductForm["productCity"];
 let frontView = editProductForm["productFrontView"];
 let backView = editProductForm["productBackView"];
 let leftView = editProductForm["productLeftView"];
@@ -24,9 +24,9 @@ let priceError = document.querySelector("#productPriceErr");
 let quantityError = document.querySelector("#productQuantityErr");
 let measurementError = document.querySelector("#productMeasurementErr");
 let descriptionError = document.querySelector("#productDescriptionErr");
-let addressError = document.querySelector("#productAddressErr");
-let stateError = document.querySelector("#productStateErr");
-let cityError = document.querySelector("#productCityErr");
+// let addressError = document.querySelector("#productAddressErr");
+// let stateError = document.querySelector("#productStateErr");
+// let cityError = document.querySelector("#productCityErr");
 let frontViewError = document.querySelector("#productFrontViewErr");
 let backViewError = document.querySelector("#productBackViewErr");
 let leftViewError = document.querySelector("#productLeftViewErr");
@@ -118,44 +118,44 @@ function validateDescription(des) {
     descriptionError.innerHTML = errors.description;
 }
 
-function validateAddress(addr) {
-    addr = addr.value.trim();
-    if (addr === "") {
-        errors.address = "The product address field is required.";
-    } else if (typeof addr !== "string") {
-        errors.address =
-            "The product address must be a string.";
-    } else {
-        errors.address = "";
-    }
-    addressError.innerHTML = errors.address;
-}
+// function validateAddress(addr) {
+//     addr = addr.value.trim();
+//     if (addr === "") {
+//         errors.address = "The product address field is required.";
+//     } else if (typeof addr !== "string") {
+//         errors.address =
+//             "The product address must be a string.";
+//     } else {
+//         errors.address = "";
+//     }
+//     addressError.innerHTML = errors.address;
+// }
 
-function validateState(state) {
-    state = state.value.trim();
-    if (state === "") {
-        errors.state = "The product state field is required.";
-    } else if (typeof state !== "string") {
-        errors.state =
-            "The product state must be a string.";
-    } else {
-        errors.state = "";
-    }
-    stateError.innerHTML = errors.state;
-}
+// function validateState(state) {
+//     state = state.value.trim();
+//     if (state === "") {
+//         errors.state = "The product state field is required.";
+//     } else if (typeof state !== "string") {
+//         errors.state =
+//             "The product state must be a string.";
+//     } else {
+//         errors.state = "";
+//     }
+//     stateError.innerHTML = errors.state;
+// }
 
-function validateCity(city) {
-    city = city.value.trim();
-    if (city === "") {
-        errors.city = "The product city field is required.";
-    } else if (typeof city !== "string") {
-        errors.city =
-            "The product city must be a string.";
-    } else {
-        errors.city = "";
-    }
-    cityError.innerHTML = errors.city;
-}
+// function validateCity(city) {
+//     city = city.value.trim();
+//     if (city === "") {
+//         errors.city = "The product city field is required.";
+//     } else if (typeof city !== "string") {
+//         errors.city =
+//             "The product city must be a string.";
+//     } else {
+//         errors.city = "";
+//     }
+//     cityError.innerHTML = errors.city;
+// }
 
 
 function validateFrontView(img) {
@@ -230,9 +230,9 @@ function validateProduct() {
     validateQuantity(quantity);
     validateMeasurement(measurement);
     validateDescription(description);
-    validateAddress(address);
-    validateState(state);
-    validateCity(city);
+    // validateAddress(address);
+    // validateState(state);
+    // validateCity(city);
     validateFrontView(frontView);
     validateBackView(backView);
     validateLeftView(leftView);
@@ -298,15 +298,15 @@ function validateProduct() {
                 if (errors.productDescription) {
                     descriptionError.innerHTML = errors.productDescription[0];
                 }
-                if (errors.productAddress) {
-                    addressError.innerHTML = errors.productAddress[0];
-                }
-                if (errors.productState) {
-                    stateError.innerHTML = errors.productState[0];
-                }
-                if (errors.productCity) {
-                    cityError.innerHTML = errors.productCity[0];
-                }
+                // if (errors.productAddress) {
+                //     addressError.innerHTML = errors.productAddress[0];
+                // }
+                // if (errors.productState) {
+                //     stateError.innerHTML = errors.productState[0];
+                // }
+                // if (errors.productCity) {
+                //     cityError.innerHTML = errors.productCity[0];
+                // }
                 if (errors.productFrontView) {
                     frontViewError.innerHTML = errors.productFrontView[0];
                 }

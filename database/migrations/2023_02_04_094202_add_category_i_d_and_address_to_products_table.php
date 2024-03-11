@@ -14,9 +14,6 @@ return new class extends Migration {
     {
         Schema::table('products', function (Blueprint $table) {
             $table->string('categoryID')->after('name');
-            $table->string('address')->after('description');
-            $table->string('city')->after('address');
-            $table->string('state')->after('city');
         });
     }
 
