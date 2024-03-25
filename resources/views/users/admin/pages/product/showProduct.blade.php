@@ -70,20 +70,40 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-sm-5 col-md-4">
+                        <label for="">Size:</label>
+                    </div>
+                    <div class="col-sm-7 col-md-8">
+                        @foreach ($product->size as $index => $size)
+                        {{ $size }}{{ $index == count($product->size) - 1 ? "." : ", " }}
+                        @endforeach
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-sm-5 col-md-4">
+                        <label for="">Color:</label>
+                    </div>
+                    <div class="col-sm-7 col-md-8">
+                        @foreach ($product->color as $index => $col)
+                            {{ $col }}{{ $index == count($product->color) - 1 ? "." : ", " }}
+                        @endforeach
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-sm-5 col-md-4">
                         <label for="">Description:</label>
                     </div>
                     <div class="col-sm-7 col-md-8">
                         {{ucfirst($product->description)}}
                     </div>
                 </div>
-                <div class="row mb-2">
+                {{-- <div class="row mb-2">
                     <div class="col-sm-5 col-md-4">
                         <label for="">Address:</label>
                     </div>
                     <div class="col-sm-7 col-md-8">
                         {{$product->address}}, {{$product->city}}, {{$product->state}}.
                     </div>
-                </div>
+                </div> --}}
                 <div class="row mb-2">
                     <div class="col-sm-5 col-md-4">
                         <label for="">Status:</label>

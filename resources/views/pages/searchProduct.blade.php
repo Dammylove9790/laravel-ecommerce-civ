@@ -45,12 +45,8 @@
         <ul>
           <form action="{{route('pages.searchProductCategory')}}" method="get">
             @foreach ($categories as $category)
-              @if ($category->name === 'Others')
-                  @continue
-              @endif
               <li><input type="submit" class="mb-2 border-0 bg-white" name="category" value="{{$category->name}}"></li>
             @endforeach
-              <li><input type="submit" class="border-0 bg-white" name="category" value="Others"></li>
           </form>
         </ul>
   </div>

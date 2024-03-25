@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
   @yield('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -135,6 +137,32 @@
             </ul>
           </li>
 
+          <li class="nav-item">
+            <a href="{{route('users.admin.category')}}" class="nav-link">
+              <i class="nav-icon fas fa-cookie-bite"></i>
+              <p>
+                Categories
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('users.admin.size')}}" class="nav-link">
+              <i class="nav-icon fas fa-cookie-bite"></i>
+              <p>
+                Size
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('users.admin.color')}}" class="nav-link">
+              <i class="nav-icon fas fa-cookie-bite"></i>
+              <p>
+                Color
+              </p>
+            </a>
+          </li>
 
 
            <li class="nav-item">
@@ -150,12 +178,6 @@
                 <a href="{{route('users.admin.products.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Product</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('users.admin.products.category')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Product Category</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -248,7 +270,15 @@
           </li>
 
           <li class="nav-item">
-              <a class="dropdown-item" href="{{ route('logout') }}"
+            <a href="{{route('users.admin.account')}}" class="nav-link">
+              <i class="fas fa-user nav-icon"></i>
+              <p>My Account</p>
+            </a>
+          </li>
+
+
+          <li class="nav-item">
+              <a class="dropdown-item" href="#"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                     {{ __('Logout') }}

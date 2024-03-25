@@ -3,22 +3,49 @@
 namespace App\Http\Controllers\pages;
 
 use Cart;
+use App\Models\Size;
+use App\Models\Color;
 use App\Models\Order;
 use App\Models\Product;
+use App\Mail\order\NewOrder;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Mail\order\NewOrder;
-use App\Mail\order\NewOrderNotifySeller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\order\NewOrderNotifySeller;
 
 class PaymentController extends Controller
 {
     public function reviewCart()
     {
         $user = Auth::user();
-        $cartContent = Cart::session('user')->getContent();
+        $cartContent = Cart::session('user')->getContent()->values();
         $cartTotal = Cart::session('user')->getTotal();
+
+        $cartContent->map(function ($item) {
+            $sizes = [];
+            $colors = [];
+
+            foreach(json_decode($item->attributes->size) as $size) {
+                $size = Size::find($size);
+                if($size){
+                    $sizes[] = $size->name;
+                }
+            }
+
+            foreach(json_decode($item->attributes->color) as $color) {
+                $color = Color::find($color);
+                if($color){
+                    $colors[] = $color->name;
+                }
+            }
+
+            $item->color = $colors;
+            $item->size = $sizes;
+
+            return $item;
+        });
+
         return view('pages.order.review_order', compact(['user', 'cartContent', 'cartTotal']));
     }
 
@@ -36,6 +63,26 @@ class PaymentController extends Controller
     {
         $user = Auth::user();
         $product = Product::where('slug', $id)->firstOrFail();
+
+        $sizes = [];
+        $colors = [];
+
+        foreach(json_decode($product->size) as $size) {
+            $size = Size::find($size);
+            if($size){
+                $sizes[] = $size->name;
+            }
+        }
+
+        foreach(json_decode($product->color) as $color) {
+            $color = Color::find($color);
+            if($color){
+                $colors[] = $color->name;
+            }
+        }
+
+        $product->color = $colors;
+        $product->size = $sizes;
 
         return view('pages.order.review_single_order', compact(['user', 'product']));
     }

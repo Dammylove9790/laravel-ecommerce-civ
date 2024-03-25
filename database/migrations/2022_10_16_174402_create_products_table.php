@@ -24,6 +24,8 @@ return new class extends Migration {
             $table->string('measurement');
             $table->text('description');
             $table->string('status');
+            $table->json('size');
+            $table->json('color');
             $table->timestamps();
         });
     }

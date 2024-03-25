@@ -2,7 +2,7 @@
   <footer id="footer-section" class="footer_section bg-dark text-white py-2 w-100 ">
     <div class="container my-5">
       <h1 class="text-center"> Grab the latest deal by shopping with us. </h1>
-      <p class="">Priccado is your number one online shopping site in Cote D'ivi. We are an online store where you can purchase all your electronics, as well as books, home appliances, kiddies items, fashion items for men, women, and children; cool gadgets, computers, groceries, automobile parts, and more on the go. What more? You can have them delivered directly to you. Shop online with great ease as you pay with UkayPay which guarantees you the safest online shopping payment method, allowing you to make stress free payments. Whatever it is you wish to Whatsapp Buy, we offers you all and lots more at prices which you can trust.</p>
+      <p class="">Priccado is your number one online shopping site in Cote D'ivoire. We are an online store where you can purchase all your electronics, as well as books, home appliances, kiddies items, fashion items for men, women, and children; cool gadgets, computers, groceries, automobile parts, and more on the go. What more? You can have them delivered directly to you. Shop online with great ease as you pay with UkayPay which guarantees you the safest online shopping payment method, allowing you to make stress free payments. Whatever it is you wish to Whatsapp Buy, we offers you all and lots more at prices which you can trust.</p>
 
       
       <div class="container-fluid mt-5 mx-3">

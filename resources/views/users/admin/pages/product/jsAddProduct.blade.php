@@ -31,6 +31,8 @@ let frontViewError = document.querySelector("#productFrontViewErr");
 let backViewError = document.querySelector("#productBackViewErr");
 let leftViewError = document.querySelector("#productLeftViewErr");
 let rightViewError = document.querySelector("#productRightViewErr");
+let colorError = document.querySelector("#productColorErr");
+let sizeError = document.querySelector("#productSizeErr");
 
 function validateName(name) {
     name = name.value.trim();
@@ -254,6 +256,15 @@ function validateProduct() {
                 if (customErrors.category) {
                     categoryError.innerHTML = customErrors.category;
                 }
+
+                if (customErrors.color) {
+                    colorError.innerHTML = customErrors.color;
+                }
+
+                if (customErrors.size) {
+                    sizeError.innerHTML = customErrors.size;
+                }
+
             }
             
             if(data.productSuccess){

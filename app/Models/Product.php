@@ -25,6 +25,8 @@ class Product extends Model
         // 'city',
         // 'state',
         'status',
+        'size',
+        'color',
         'updated_by'
     ];
 

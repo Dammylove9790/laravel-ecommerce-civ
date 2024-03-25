@@ -126,6 +126,8 @@
                                     <th>Product Names</th>
                                     <th>Product Price</th>
                                     <th>Quantity</th>
+                                    <th>Size</th>
+                                    <th>Color</th>
                                     <th>Front view</th>
                                     <th>Date Uploaded</th>
                                     <th>Actions</th>
@@ -150,6 +152,16 @@
                                             <td>{{$product->name}}</td>
                                             <td class="localePrice">{{$product->price}}</td>
                                             <td>{{$product->quantity}}</td>
+                                            <td>
+                                                @foreach ($product->size as $index => $eachSize)
+                                                {{ $eachSize }}{{ $index == count($product->size) - 1 ? "." : ", " }}
+                                                @endforeach
+                                            </td>
+                                            <td>
+                                                @foreach ($product->color as $index => $eachColor)
+                                                {{ $eachColor }}{{ $index == count($product->color) - 1 ? "." : ", " }}
+                                                @endforeach
+                                            </td>
                                             <td><img class="" src="{{asset('pictures/'.$img)}}" style='max-height:100px' alt="{{$product->name}}"></td>
                                             <td>{{$product->created_at}}</td>
                                             <td>
@@ -221,6 +233,8 @@
                                     <th>Product Names</th>
                                     <th>Product Price</th>
                                     <th>Quantity</th>
+                                    <th>Size</th>
+                                    <th>Color</th>
                                     <th>Front view</th>
                                     <th>Date Uploaded</th>
                                     <th>Actions</th>
@@ -264,6 +278,8 @@
                                     <th>Product Names</th>
                                     <th>Product Price</th>
                                     <th>Quantity</th>
+                                    <th>Size</th>
+                                    <th>Color</th>
                                     <th>Front view</th>
                                     <th>Date Uploaded</th>
                                     <th>Actions</th>
@@ -300,6 +316,16 @@
                                             <td>{{$product->name}}</td>
                                             <td class="localePrice">{{$product->price}}</td>
                                             <td>{{$product->quantity}}</td>
+                                            <td>
+                                                @foreach ($product->size as $index => $eachSize)
+                                                {{ $eachSize }}{{ $index == count($product->size) - 1 ? "." : ", " }}
+                                                @endforeach
+                                            </td>
+                                            <td>
+                                                @foreach ($product->color as $index => $eachColor)
+                                                {{ $eachColor }}{{ $index == count($product->color) - 1 ? "." : ", " }}
+                                                @endforeach
+                                            </td>
                                             <td><img class="" src="{{asset('pictures/'.$img)}}" style='max-height:100px' alt="{{$product->name}}"></td>
                                             <td>{{$product->created_at}}</td>
                                             <td>
@@ -371,6 +397,8 @@
                                     <th>Product Names</th>
                                     <th>Product Price</th>
                                     <th>Quantity</th>
+                                    <th>Size</th>
+                                    <th>Color</th>
                                     <th>Front view</th>
                                     <th>Date Uploaded</th>
                                     <th>Actions</th>

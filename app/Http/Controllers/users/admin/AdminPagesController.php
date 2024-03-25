@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\users\admin;
 
-use App\Mail\auth\AcceptUser;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Mail\auth\AcceptUser;
+use App\Mail\auth\DeleteUser;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\AdminRegisterUserRequest;
-use App\Mail\auth\DeleteUser;
 
 class AdminPagesController extends Controller
 {
@@ -95,4 +96,32 @@ class AdminPagesController extends Controller
         $logistics = User::where('role', 'logistics')->orderByDesc('id')->get();
         return view('users.admin.pages.users.manageLogistics', compact('logistics'));
     }
+
+    public function account(){
+        $user = Auth::user();
+        return view('users.admin.pages.account', compact('user'));
+    }
+
+    public function updatePassword(Request $request){
+        $user = Auth::user();
+
+        $request->validate([
+            'current_password' => [
+                'required', 'string', function($attribute, $value, $fail) use($request, $user) {
+                    if (!Hash::check($request->current_password, $user->password)) {
+                        $fail("Incorrect current password");
+                    }
+                }
+            ],
+            'new_password' => 'required|string|min:8|max:12|confirmed'
+        ]);
+
+        $user->update([
+            'password' => Hash::make($request->new_password),
+        ]);    
+
+        return redirect()->back()->with('success', 'Password updated successfully');
+
+    }
+
 }

@@ -6,6 +6,17 @@
     <li class="breadcrumb-item active">Edit Product</li>
 @endsection
 
+@section('css')
+    <style>
+        .select2-container--default .select2-selection--multiple .select2-selection__choice {
+            background-color: rgb(12, 169, 12); 
+            color: white;
+        }
+
+    </style>
+@endsection
+
+
 @section('content')
     <div class="container-fluid">
         @if (Auth::user()->status === 'pending')
@@ -34,7 +45,6 @@
                                 {{$category->name}}
                             </option>
                         @endforeach
-                        <option value="others" @php echo $prodCatSlug === "others" ? "selected" : ""  @endphp>Others</option>
                     </select>
                     <small id='productCategoryErr' class='text-danger'></small>                    
                 </div>
@@ -63,6 +73,28 @@
                     <input type='text' class='form-control p-3' id='productMeasurement'
                         placeholder='' name='productMeasurement' value="{{$product->measurement}}">
                     <small id='productMeasurementErr' class='text-danger'></small>
+                </div>
+                <div class="my-3 col-6 col-sm-4 col-lg-3">
+                    <label for="productSize" class="form-label">Product Size</label>
+                    <select name="productSize[]" id="productSize" class="form-control select2" multiple>
+                        @forelse ($sizes as $size)
+                            <option value="{{$size->id}}" {{ in_array($size->id, $product->size) ? "selected" : "" }}>{{$size->name}}</option>
+                        @empty
+                        <option disabled>No options available</option>
+                        @endforelse
+                    </select>
+                    <small id='productSizeErr' class='text-danger'></small>                    
+                </div>
+                <div class="my-3 col-6 col-sm-4 col-lg-3">
+                    <label for="productColor" class="form-label">Product Color</label>
+                    <select name="productColor[]" id="productColor" class="form-control select2" multiple>
+                        @forelse ($colors as $color)
+                            <option value="{{$color->id}}" {{ in_array($color->id, $product->color) ? "selected" : "" }}>{{$color->name}}</option>
+                        @empty
+                        <option disabled>No options available</option>
+                        @endforelse
+                    </select>
+                    <small id='productColorErr' class='text-danger'></small>                    
                 </div>
                 <div class="my-3 col-12">
                     <label for="productDescription" class="form-label"><b>Description</b></label>
@@ -125,4 +157,12 @@
 @section('js')
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     @include('users.admin.pages.product.jsEditProduct')
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2({
+                placeholder: "Select...",
+                allowClear: true
+            });
+        });
+    </script>
 @endsection

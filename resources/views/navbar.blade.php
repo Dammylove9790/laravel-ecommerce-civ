@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}:: @yield('title')</title>
+    <title>PRICCADDO:: @yield('title')</title>
     <!-- Favicon -->
     <link rel="icon" href="{{asset('img/wefarm-nav.png')}}">
     <!-- Core Stylesheet -->
@@ -107,14 +107,14 @@
                   </li>
                   @endif
                   <li class="dropdown-item">
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                      @csrf
-                    </form>
-                    <a href="{{ route('logout') }}"
+                    <a href="#"
                           onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                           {{ __('Logout') }}
                     </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                    </form>
                   </li>
                 </ul>
                   <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

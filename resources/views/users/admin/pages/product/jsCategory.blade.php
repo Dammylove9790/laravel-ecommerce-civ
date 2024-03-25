@@ -20,7 +20,7 @@ function validateCategory(cat) {
 function backendVer(){
     let formData = new FormData(categoryForm);
 
-    axios.post("{{route('users.admin.products.category.store')}}", formData)
+    axios.post("{{route('users.admin.category.store')}}", formData)
     .then(function (response) {
         console.log(response.data);
         let data = response.data;
@@ -31,8 +31,8 @@ function backendVer(){
 
                 category_error.innerHTML = "Product Category uploaded successfully."
                 setTimeout(() => {
-                    window.location.assign("{{route('users.admin.products.category')}}");
-                }, 2000);
+                    window.location.assign("{{route('users.admin.category')}}");
+                }, 1000);
             }
         }
     })

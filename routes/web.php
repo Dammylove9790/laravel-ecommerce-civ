@@ -70,8 +70,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::delete('/products/delete/{id}', [AdminProductController::class, 'delete'])->name('users.admin.products.delete');
 
             // category
-            Route::get('/product_category', [AdminProductController::class, 'category'])->name('users.admin.products.category');
-            Route::post('/product_category', [AdminProductController::class, 'storeCategory'])->name('users.admin.products.category.store');
+            Route::get('/product_category', [AdminProductController::class, 'category'])->name('users.admin.category');
+            Route::post('/product_category', [AdminProductController::class, 'storeCategory'])->name('users.admin.category.store');
+            Route::put('/product_category/{id}', [AdminProductController::class, 'updateCategory'])->name('users.admin.category.update');
+            Route::delete('/product_category/{id}', [AdminProductController::class, 'deleteCategory'])->name('users.admin.category.delete');
+
+            Route::get('/product_size', [AdminProductController::class, 'size'])->name('users.admin.size');
+            Route::post('/product_size', [AdminProductController::class, 'storeSize'])->name('users.admin.size.store');
+            Route::put('/product_size/{id}', [AdminProductController::class, 'updateSize'])->name('users.admin.size.update');
+            Route::delete('/product_size/{id}', [AdminProductController::class, 'deleteSize'])->name('users.admin.size.delete');
+
+            Route::get('/product_color', [AdminProductController::class, 'color'])->name('users.admin.color');
+            Route::post('/product_color', [AdminProductController::class, 'storeColor'])->name('users.admin.color.store');
+            Route::put('/product_color/{id}', [AdminProductController::class, 'updateColor'])->name('users.admin.color.update');
+            Route::delete('/product_color/{id}', [AdminProductController::class, 'deleteColor'])->name('users.admin.color.delete');
 
             // order
             // Route::get('/wefarm_product_orders/', [AdminOrderController::class, 'wefarmProductOrders'])->name('users.admin.orders.wefarm_product');
@@ -102,6 +114,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
             // empty all recycle bin
             Route::delete('/recycle_bin/empty_all', [AdminRecycleBin::class, 'emptyAll'])->name('users.admin.bin.empty.all');    
+
+            Route::get('/my_account', [AdminPagesController::class, 'account'])->name('users.admin.account');
+            Route::put('/my_account', [AdminPagesController::class, 'updatePassword'])->name('users.admin.password');
+
         });
 
         //define the route for farmer
