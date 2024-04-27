@@ -118,7 +118,7 @@
                 </div> --}}
 
                 
-                <h5 class="col-12">Kindly note that you must upload Front view of your product. Other views are optional. Acceptable dimension is 300px by 250px</h5>
+                <h5 class="col-12">Kindly note that you must upload Front view of your product. Other views are optional.</h5>
                 <div class="my-3 col-sm-6">
                     <label for="productFrontView" class="form-label"><b>Front view</b></label>
                     <input type="file" class="form-control" id="productFrontView" name="productFrontView">

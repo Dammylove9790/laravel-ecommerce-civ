@@ -33,10 +33,10 @@ class AddProductRequest extends FormRequest
             // 'productAddress' => 'required|string',
             // 'productCity' => 'required|string',
             // 'productState' => 'required|string',
-            'productFrontView' => 'required|file|image',
-            'productBackView' => 'nullable|file|image',
-            'productLeftView' => 'nullable|file|image',
-            'productRightView' => 'nullable|file|image',
+            'productFrontView' => 'required|file|image|max:4096',
+            'productBackView' => 'nullable|file|image|max:4096',
+            'productLeftView' => 'nullable|file|image|max:4096',
+            'productRightView' => 'nullable|file|image|max:4096',
 
         ];
     }
